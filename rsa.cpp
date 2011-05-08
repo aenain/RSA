@@ -10,20 +10,16 @@ using namespace std;
 // --generate-keys - generating keys
 // --decode - decoding using id_rsa (requires filename)
 // --code - coding using id_rsa.pub (requires filename)
-// argv[2] - name of source file (if needed)
+// argv[2] - name of source file (if needed) or length of prime number for key.
 // argv[3] - name of destination file (if needed)
 
 int main (int argc, char const* argv[])
 {
-	srand( time(NULL) );
-
-	Numbers numbers;
-	Prime prime;
-	cout << prime.generate_prime(40) << endl;
-
-	if (argc == 2) {
+	if (argc == 3) {
 		if (!strcmp(argv[1], "--generate-keys")) {// generates keys and saves to id_rsa.pub i id_rsa in current folder
-			KeyPairGenerator generator(100);
+			srand( time(NULL) );
+
+			KeyPairGenerator generator( atoi(argv[2]) );
 			generator.generate();
 		}
 	}

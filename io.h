@@ -10,8 +10,8 @@ using namespace std;
 
 class IO {
 	public:
-		key_pair read_key(const string & filename);
-		void write_key(const string & filename, const key_pair & pair);
+		static key_pair read_key(const string & filename);
+		static void write_key(const string & filename, const bignum & n, const bignum & e);
 };
 
 #endif
