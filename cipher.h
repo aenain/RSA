@@ -11,9 +11,12 @@ class Cipher {
 	public:
 		void encrypt();
 		void decrypt();
-		Cipher(const string & source, const string & destination) : source(source), destination(destination) {};
+		Cipher(const string & source, const string & destination) : source_path(source), destination_path(destination) {};
+
 	private:
-		string source, destination;
+		string source_path, destination_path;
+		string block_from_char(const char letter);
+		char char_from_block(const string & block);
 };
 
 #endif
